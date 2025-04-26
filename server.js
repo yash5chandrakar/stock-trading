@@ -21,7 +21,7 @@ app.use(
         extended: true,
     })
 );
-app.use(cors());
+// app.use(cors());
 
 app.get("/", (req, res) => {
     return res.status(200).send("Stock Trading App by Yash Chandrakar")
