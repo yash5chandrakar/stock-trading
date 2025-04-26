@@ -1,0 +1,14 @@
+{
+  "name": "stock-trading",
+  "version": "1.0.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.2",
+    "nodemon": "^3.1.9",
+    "uuid": "^11.1.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
