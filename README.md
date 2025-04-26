@@ -13,49 +13,49 @@ Follow the steps to run this:
 
 This application has 2 controllers for trades and lots operations.
 
-1. Add a New Trade
-POST /addtrade
+1. Add a New Trade - 
+POST /api/trade/addtrade
 Adds a new trade.
-Body: { stockSymbol, quantity, price, type, date, method }
+Body: { stock_name, quantity, broker_name, price  }
 
-2. Update an Existing Trade
-PUT /updatetrade
+2. Update an Existing Trade - 
+PUT /api/trade/updatetrade
 Updates a trade by trade_id.
-Body: { trade_id, updates... }
+Body: { trade_id, stock_name, quantity, broker_name, price }
 
-3. Get a Single Trade
-POST /gettrade
+3. Get a Single Trade -
+POST /api/trade/gettrade
 Retrieves one trade by trade_id.
 Body: { trade_id }
 
-4. Get All Trades
-GET /getalltrades
+4. Get All Trades -
+GET /api/trade/getalltrades
 Returns a list of all recorded trades.
 
-5. Delete a Trade
-DELETE /deletetrade/:id
+5. Delete a Trade -
+DELETE /api/trade/deletetrade/:id
 Deletes a trade by trade_id.
 
-6. Bulk Trade Operation
-POST /bulktrade
+6. Bulk Trade Operation -
+POST /api/trade/bulktrade
 Upload multiple trades at once.
-Body: [{ trade1 }, { trade2 }, ...]
+Body: [{ trade1 }, { trade2 }, ...] - *Each Trade required type:"BUY" or "SELL" and sellType:"FIFO" or "LIFO"
 
-7. Sell Stocks Using FIFO
-POST /sell/fifo
+7. Sell Stocks Using FIFO -
+POST /api/lot/sell/fifo
 Sells stock using the FIFO (First In, First Out) method.
 Body: { stockSymbol, quantity, date }
 
-8. Sell Stocks Using LIFO
-POST /sell/lifo
+8. Sell Stocks Using LIFO -
+POST /api/lot/sell/lifo
 Sells stock using the LIFO (Last In, First Out) method.
 Body: { stockSymbol, quantity, date }
 
-9. Get Specific Lot by ID
-GET /getlot/:lot_id
+9. Get Specific Lot by ID -
+GET /api/lot/getlot/:lot_id
 Retrieves detailed info about a specific lot.
 
-10. Get All Lots for a Stock
-GET /getlots?stockSymbol=AAPL
+10. Get All Lots for a Stock -
+GET /api/lot/getlots
 Lists all open and closed lots for the given stock.
 
