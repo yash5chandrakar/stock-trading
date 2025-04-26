@@ -1,4 +1,4 @@
-# StockTracker
+# StockTrackr
 
 StockTrackr is a simple and intuitive stock trading app that helps users track their investments and calculate gains or losses using FIFO (First In, First Out) or LIFO (Last In, First Out) methods. Users can log buy and sell trades, monitor portfolio performance. With a clean interface and easy-to-use features, StockTrackr is perfect for casual investors or anyone wanting better insight into their stock trading performance. Make smarter sell decisions with accurate, method-based trade tracking.
 
