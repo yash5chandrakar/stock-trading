@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/stockTradingDb', {
+const mongoURI = process.env.MONGO_URI;
+
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
