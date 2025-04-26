@@ -13,12 +13,12 @@ Follow the steps to run this:
 
 This application has 2 controllers for trades and lots operations.
 
-1. Add a New Trade - 
+1. Add a New Trade - <br/>
 POST /api/trade/addtrade
 Adds a new trade.
 Body: { stock_name, quantity, broker_name, price  }
 
-2. Update an Existing Trade - 
+2. Update an Existing Trade - <br/>
 PUT /api/trade/updatetrade
 Updates a trade by trade_id.
 Body: { trade_id, stock_name, quantity, broker_name, price }
