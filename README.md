@@ -23,39 +23,40 @@ PUT /api/trade/updatetrade
 Updates a trade by trade_id.
 Body: { trade_id, stock_name, quantity, broker_name, price }
 
-3. Get a Single Trade -
+3. Get a Single Trade - <br/>
 POST /api/trade/gettrade
 Retrieves one trade by trade_id.
 Body: { trade_id }
 
-4. Get All Trades -
+4. Get All Trades - <br/>
 GET /api/trade/getalltrades
 Returns a list of all recorded trades.
 
-5. Delete a Trade -
+5. Delete a Trade - <br/>
 DELETE /api/trade/deletetrade/:id
 Deletes a trade by trade_id.
 
-6. Bulk Trade Operation -
+6. Bulk Trade Operation - <br/>
 POST /api/trade/bulktrade
 Upload multiple trades at once.
-Body: [{ trade1 }, { trade2 }, ...] - *Each Trade required type:"BUY" or "SELL" and sellType:"FIFO" or "LIFO"
+Body: { tradeItems :[{ trade1 }, { trade2 }, ...] -  }<br/>
+*<small>Each Trade required type:"BUY" or "SELL" and sellType:"FIFO" or "LIFO"</small>
 
-7. Sell Stocks Using FIFO -
+7. Sell Stocks Using FIFO - <br/>
 POST /api/lot/sell/fifo
 Sells stock using the FIFO (First In, First Out) method.
 Body: { stockSymbol, quantity, date }
 
-8. Sell Stocks Using LIFO -
+8. Sell Stocks Using LIFO - <br/>
 POST /api/lot/sell/lifo
 Sells stock using the LIFO (Last In, First Out) method.
 Body: { stockSymbol, quantity, date }
 
-9. Get Specific Lot by ID -
+9. Get Specific Lot by ID - <br/>
 GET /api/lot/getlot/:lot_id
 Retrieves detailed info about a specific lot.
 
-10. Get All Lots for a Stock -
+10. Get All Lots for a Stock - <br/>
 GET /api/lot/getlots
 Lists all open and closed lots for the given stock.
 
