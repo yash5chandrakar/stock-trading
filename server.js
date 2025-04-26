@@ -25,6 +25,10 @@ app.use(cors());
 
 let routes = require("./routes/index");
 
+app.get("/", (req, res) => {
+    return res.status(200).send("Stock Trading App by Yash Chandrakar")
+})
+
 app.use("/api", routes);
 
 app.listen(3000, () => {
