@@ -157,15 +157,6 @@ exports.sellFromLotsLIFO = async (req, res) => {
 
         const amount = sell_quantity * price;
 
-        const { isValid, errors } = validateTradeInput(tradeItem, 'sell');
-        if (!isValid) {
-            return {
-                status: false,
-                message: "Validation Failed",
-                errors: errors
-            };
-        }
-
         const trade = new Trade({
             trade_id: uuidv4(),
             stock_name,
@@ -242,7 +233,7 @@ exports.sellFromLotsLIFO = async (req, res) => {
 
         return res.status(200).json({
             status: true,
-            message: 'Sell executed using FIFO.',
+            message: 'Sell executed using LIFO.',
             realized_quantity: sell_quantity
         });
     }

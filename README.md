@@ -14,30 +14,30 @@ Follow the steps to run this:
 This application has 2 controllers for trades and lots operations.
 
 1. Add a New Trade - <br/>
-POST /api/trade/addtrade
+POST /api/trades/addtrade
 Adds a new trade.
 Body: { stock_name, quantity, broker_name, price  }
 
 2. Update an Existing Trade - <br/>
-PUT /api/trade/updatetrade
+PUT /api/trades/updatetrade
 Updates a trade by trade_id.
 Body: { trade_id, stock_name, quantity, broker_name, price }
 
 3. Get a Single Trade - <br/>
-POST /api/trade/gettrade
+POST /api/trades/gettrade
 Retrieves one trade by trade_id.
 Body: { trade_id }
 
 4. Get All Trades - <br/>
-GET /api/trade/getalltrades
+GET /api/trades/getalltrades
 Returns a list of all recorded trades.
 
 5. Delete a Trade - <br/>
-DELETE /api/trade/deletetrade/:id
+DELETE /api/trades/deletetrade/:id
 Deletes a trade by trade_id.
 
 6. Bulk Trade Operation - <br/>
-POST /api/trade/bulktrade
+POST /api/trades/bulktrade
 Upload multiple trades at once.
 Body: { tradeItems :[{ trade1 }, { trade2 }, ...] -  }<br/>
 *<small>Each Trade required type:"BUY" or "SELL" and sellType:"FIFO" or "LIFO"</small>
