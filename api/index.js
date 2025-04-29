@@ -21,7 +21,11 @@ app.use(
         extended: true,
     })
 );
-// app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000", // or '*' for all, or use an array
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 
 app.get("/", (req, res) => {
     return res.status(200).send("Stock Trading App by Yash Chandrakar")
