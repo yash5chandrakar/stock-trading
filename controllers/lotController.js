@@ -105,9 +105,20 @@ exports.sellFromLotsFIFO = async (req, res) => {
                 lot.lot_status = 'PARTIALLY REALIZED';
             }
 
-            await lot.save();
+
+            await Lot.updateOne(
+                { _id: lot._id }, // Filter
+                {
+                    $set: {
+                        realized_quantity: lot.realized_quantity,
+                        lot_status: lot.lot_status,
+                        realized_trade_id: lot.realized_trade_id
+                    }
+                }
+            );
             lotsToUpdate.push({
                 ...lot,
+                _id: lot?._id,
                 original_realized_quantity,
                 original_lot_status,
                 original_realized_trade_id,
@@ -118,11 +129,16 @@ exports.sellFromLotsFIFO = async (req, res) => {
 
         if (remainingQuantity > 0) {
             for (const lot of lotsToUpdate) {
-                lot.realized_quantity = lot.original_realized_quantity;
-                lot.lot_status = lot.original_lot_status
-                lot.realized_trade_id = lot.original_realized_trade_id;
-
-                await lot.save();
+                await Lot.updateOne(
+                    { _id: lot._id }, // Filter
+                    {
+                        $set: {
+                            realized_quantity: lot.original_realized_quantity,
+                            lot_status: lot.original_lot_status,
+                            realized_trade_id: lot.original_realized_trade_id
+                        }
+                    }
+                );
             }
 
             await Trade.deleteOne({ _id: trade._id });
@@ -203,9 +219,21 @@ exports.sellFromLotsLIFO = async (req, res) => {
                 lot.lot_status = 'PARTIALLY REALIZED';
             }
 
-            await lot.save();
+            await Lot.updateOne(
+                { _id: lot._id }, // Filter
+                {
+                    $set: {
+                        realized_quantity: lot.realized_quantity,
+                        lot_status: lot.lot_status,
+                        realized_trade_id: lot.realized_trade_id
+                    }
+                }
+            );
+
+            // await lot.save();
             lotsToUpdate.push({
                 ...lot,
+                _id: lot?._id,
                 original_realized_quantity,
                 original_lot_status,
                 original_realized_trade_id,
@@ -216,11 +244,16 @@ exports.sellFromLotsLIFO = async (req, res) => {
 
         if (remainingQuantity > 0) {
             for (const lot of lotsToUpdate) {
-                lot.realized_quantity = lot.original_realized_quantity;
-                lot.lot_status = lot.original_lot_status
-                lot.realized_trade_id = lot.original_realized_trade_id;
-
-                await lot.save();
+                await Lot.updateOne(
+                    { _id: lot._id }, // Filter
+                    {
+                        $set: {
+                            realized_quantity: lot.original_realized_quantity,
+                            lot_status: lot.original_lot_status,
+                            realized_trade_id: lot.original_realized_trade_id
+                        }
+                    }
+                );
             }
 
             await Trade.deleteOne({ _id: trade._id });

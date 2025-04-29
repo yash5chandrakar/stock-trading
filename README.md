@@ -45,12 +45,12 @@ Body: { tradeItems :[{ trade1 }, { trade2 }, ...] -  }<br/>
 7. Sell Stocks Using FIFO - <br/>
 POST /api/lot/sell/fifo
 Sells stock using the FIFO (First In, First Out) method.
-Body: { stockSymbol, quantity, date }
+Body: { stock_name, sell_quantity, price }
 
 8. Sell Stocks Using LIFO - <br/>
 POST /api/lot/sell/lifo
 Sells stock using the LIFO (Last In, First Out) method.
-Body: { stockSymbol, quantity, date }
+Body: {stock_name, sell_quantity, price }
 
 9. Get Specific Lot by ID - <br/>
 GET /api/lot/getlot/:lot_id
