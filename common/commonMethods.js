@@ -108,7 +108,7 @@ const saveSellTrade = async (tradeItem) => {
             await Trade.deleteOne({ _id: trade._id });
             return {
                 status: false,
-                message: 'No available lots to realize for this symbol.'
+                message: 'No available lots to realize for this stock.'
             };
         }
 

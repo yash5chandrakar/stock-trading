@@ -79,7 +79,7 @@ exports.sellFromLotsFIFO = async (req, res) => {
             await Trade.deleteOne({ _id: trade._id });
             return res.status(404).json({
                 status: false,
-                message: 'No available lots to realize for this symbol.'
+                message: 'No available lots to realize for this stock.'
             });
         }
 
@@ -193,7 +193,7 @@ exports.sellFromLotsLIFO = async (req, res) => {
             await Trade.deleteOne({ _id: trade._id });
             return res.status(404).json({
                 status: false,
-                message: 'No available lots to realize for this symbol.'
+                message: 'No available lots to realize for this stock.'
             });
         }
 
