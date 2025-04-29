@@ -22,7 +22,7 @@ app.use(
     })
 );
 app.use(cors({
-    origin: "http://localhost:3000", // or '*' for all, or use an array
+    origin: "*", // or '*' for all, or use an array
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
